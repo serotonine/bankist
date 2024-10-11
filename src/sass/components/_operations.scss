@@ -1,0 +1,105 @@
+/* OPERATIONS */
+.operations {
+    max-width: 100rem;
+    margin: 12rem auto 0 auto;
+    background-color: #fff;
+
+    &__tab-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__tab {
+        margin-right: 2.5rem;
+        transform: translateY(-50%);
+    }
+
+    &__tab span {
+        margin-right: 1rem;
+        font-weight: 600;
+        display: inline-block;
+    }
+
+    &__tab--1 {
+        background-color: var(--color-secondary);
+    }
+
+    &__tab--1:hover {
+        background-color: var(--color-secondary-darker);
+    }
+
+    &__tab--3 {
+        background-color: var(--color-tertiary);
+        margin: 0;
+    }
+
+    &__tab--3:hover {
+        background-color: var(--color-tertiary-darker);
+    }
+
+    &__tab--active {
+        transform: translateY(-66%);
+    }
+
+    &__content {
+        display: none;
+        /* JUST PRESENTATIONAL */
+        font-size: 1.7rem;
+        padding: 2.5rem 7rem 6.5rem 7rem;
+    }
+
+    &__content--active {
+        display: grid;
+        grid-template-columns: 7rem 1fr;
+        column-gap: 3rem;
+        row-gap: 0.5rem;
+    }
+
+    &__header {
+        font-size: 2.25rem;
+        font-weight: 500;
+        align-self: center;
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 7rem;
+        width: 7rem;
+        border-radius: 50%;
+    }
+
+    &__icon svg {
+        height: 2.75rem;
+        width: 2.75rem;
+    }
+
+    &__content p {
+        grid-column: 2;
+    }
+
+    &__icon--1 {
+        background-color: var(--color-secondary-opacity);
+    }
+
+    &__icon--2 {
+        background-color: var(--color-primary-opacity);
+    }
+
+    &__icon--3 {
+        background-color: var(--color-tertiary-opacity);
+    }
+
+    &__icon--1 svg {
+        fill: var(--color-secondary-darker);
+    }
+
+    &__icon--2 svg {
+        fill: var(--cyan-500);
+    }
+
+    &__icon--3 svg {
+        fill: var(--color-tertiary);
+    }
+}

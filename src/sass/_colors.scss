@@ -1,0 +1,80 @@
+:root {
+
+  --cyan-050: #e0fcff;
+  --cyan-100: #bef8fd;
+  --cyan-200: #87eaf2;
+  --cyan-300: hsl(184, 65%, 59%);
+  --cyan-400: hsl(185, 57%, 50%);
+  --cyan-500: hsl(185, 62%, 45%);
+  --cyan-600: #14919b;
+  --cyan-700: hsl(185, 81%, 29%);
+  --cyan-800: #0a6c74;
+  --cyan-900: #044e54;
+
+  --warm-grey-050: hsl(40, 23%, 97%);
+  --warm-grey-100: hsl(43, 13%, 90%);
+  --warm-grey-200: #d3cec4;
+  --warm-grey-300: #b8b2a7;
+  --warm-grey-500: #857f72;
+  --warm-grey-600: #625d52;
+  --warm-grey-700: #504a40;
+  --warm-grey-800: #423d33;
+  --warm-grey-900: #27241d;
+
+  --blue-050: #dceefb;
+  --blue-100: #b6e0fe;
+  --blue-200: #84c5f4;
+  --blue-300: #62b0e8;
+  --blue-400: #4098d7;
+  --blue-500: #2680c2;
+  --blue-600: #186faf;
+  --blue-700: #0f609b;
+  --blue-800: #0a558c;
+  --blue-900: #003e6b;
+
+  --red-050: #ffeeee;
+  --red-100: #facdcd;
+  --red-200: #f29b9b;
+  --red-300: #e66a6a;
+  --red-400: #d64545;
+  --red-500: #ba2525;
+  --red-600: #a61b1b;
+  --red-700: #911111;
+  --red-800: #780a0a;
+  --red-900: #610404;
+
+  --yellow-050: #fffaeb;
+  --yellow-100: #fcefc7;
+  --yellow-200: #f8e3a3;
+  --yellow-300: #f9da8b;
+  --yellow-400: #f7d070;
+  --yellow-500: #e9b949;
+  --yellow-600: #c99a2e;
+  --yellow-700: #a27c1a;
+  --yellow-800: #7c5e10;
+  --yellow-900: #513c06;
+
+  --teal-050: hsl(152, 68%, 96%);
+  --teal-100: hsl(154, 75%, 87%);
+  --teal-200: hsl(156, 73%, 74%);
+  --teal-300: hsl(158, 58%, 62%);
+  --teal-400: hsl(160, 51%, 49%);
+  --teal-500: hsl(162, 63%, 41%);
+  --teal-600: hsl(164, 71%, 34%);
+  --teal-700: hsl(166, 72%, 28%);
+  --teal-800: hsl(168, 80%, 23%);
+  --teal-900: hsl(170, 97%, 15%);
+
+  --color-body: var(--warm-grey-900);
+  --color-primary: var(--teal-300);
+  --color-secondary: var(--yellow-300);
+  --color-tertiary: var(--red-200);
+  --color-primary-darker: var(--teal-400);
+  --color-secondary-darker: var(--yellow-400);
+  --color-tertiary-darker: var(--red-300);
+  --color-primary-opacity: var(--cyan-050);
+  --color-secondary-opacity: #ffcd0331;
+  --color-tertiary-opacity: #ff58602d;
+  --gradient-primary: linear-gradient(to top left; #39b385; #9be15d);
+  --gradient-secondary: linear-gradient(to top left; #ffb003; #ffcb03);
+}
