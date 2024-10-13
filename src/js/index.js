@@ -27,23 +27,32 @@ document
 
 // BACK TO TOP.
 const backToTop = document.getElementById("back-to-top");
+const [body] = document.getElementsByTagName("BODY");
+console.log(body);
 backToTop.addEventListener("click", function (e) {
-  console.log("back-to-top clicked");
+  // Uncheck .nav__input.
+  burgerInput.checked = false;
   body.scrollIntoView({ behavior: "smooth" });
 });
 
-/////// NAVIGATION //////
-// NAVIGATION SMOOTH SCROLLING //
+//// NAVIGATION ////
+// NAVIGATION SMOOTH SCROLLING
 const nav = document.querySelector(".nav");
 const navLinks = document.querySelector(".nav__links");
 const navLink = document.querySelector(".nav__link");
+// Uncheck .nav__input.
+const burgerInput = document.querySelector(".burger__input");
 // Use bubbling event: Add event listener to commun parent.
 navLinks.addEventListener("click", function (e) {
-  e.preventDefault();
-  if (e.target.tagName === "A") {
-    const id = e.target.getAttribute("href");
-    const target = document.getElementById(id);
-    target.scrollIntoView({ behavior: "smooth" });
+  if (!e.target.classList.contains("btn--bank")) {
+    e.preventDefault();
+    if (e.target.tagName === "A") {
+      // Uncheck .nav__input.
+      burgerInput.checked = false;
+      const id = e.target.getAttribute("href");
+      const target = document.getElementById(id);
+      target.scrollIntoView({ behavior: "smooth" });
+    }
   }
 });
 // NAVIGATION FADE OUT //
