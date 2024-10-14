@@ -5,10 +5,14 @@ display: inline-block;
   font-family: inherit;
   font-weight: 500;
   border: none;
-  padding: 1.25rem 4.5rem;
-  border-radius: var(--border-radius-l);
+  padding: 0.8rem 1.5rem;
+    border-radius: 1rem;
   cursor: pointer;
   transition: all 0.3s;
+  @include media-min($_lg) {
+      border-radius: var(--border-radius-l);
+      padding: 1.25rem 4.5rem;
+    }
 
 &:hover {
     background-color: var(--cyan-300);
@@ -37,10 +41,7 @@ display: inline-block;
   width: 15ch;
     height: 15ch;
   transform: scale(0.5);
-  display: flex;
-  flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: none;
     background-color: var(--yellow-400);
   border-radius: 50%;
   transition: all 0.2s;
@@ -48,6 +49,12 @@ display: inline-block;
 position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
+  @include media-min($_md) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
   &:hover {
 transform: scale(0.8);

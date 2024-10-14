@@ -51,9 +51,12 @@ p {
         }
 
 .section {
-  padding: 15rem;
+  padding: 15rem 5rem;
   border-top: 1px solid #ddd;
   transition: transform 1s, opacity 1s;
+  @include media-min($_lg) {
+      padding: 15rem;
+    }
 
   &--hidden {
       opacity: 0;
