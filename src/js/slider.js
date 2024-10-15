@@ -1,16 +1,17 @@
 "use strict";
 
-// Calculate slider height
-const maxHeight = function (slides) {
-  let h = 0;
-  slides.forEach((slide) => {
-    h = slide.offsetHeight > h ? slide.offsetHeight : h;
-  });
-  return h;
-};
+(function () {
+  // Calculate slider height
+  const maxHeight = function (slides) {
+    let h = 0;
+    slides.forEach((slide) => {
+      h = slide.offsetHeight > h ? slide.offsetHeight : h;
+    });
+    return h;
+  };
 
-// SLIDER
-const slider = function () {
+  // SLIDER
+  //const slider = function () {
   // DOM
   const slider = document.querySelector(".slider");
   const slides = document.querySelectorAll(".slide");
@@ -83,5 +84,5 @@ const slider = function () {
     activeDot(slide);
     mvSlides(slide);
   });
-};
-slider();
+})();
+
