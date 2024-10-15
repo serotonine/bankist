@@ -19,16 +19,6 @@
   --warm-grey-700: #504a40;
   --warm-grey-800: #423d33;
   --warm-grey-900: #27241d;
-  --blue-050: #dceefb;
-  --blue-100: #b6e0fe;
-  --blue-200: #84c5f4;
-  --blue-300: #62b0e8;
-  --blue-400: #4098d7;
-  --blue-500: #2680c2;
-  --blue-600: #186faf;
-  --blue-700: #0f609b;
-  --blue-800: #0a558c;
-  --blue-900: #003e6b;
   --red-050: #ffeeee;
   --red-100: #facdcd;
   --red-200: #f29b9b;
@@ -137,6 +127,12 @@ p {
   .container {
     width: 1240px;
   }
+}
+
+/* UTILITIES. */
+.hidden {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .section {
@@ -274,11 +270,6 @@ img {
 }
 .footer__copyright .footer__link {
   font-size: 1.4rem;
-}
-
-.hidden {
-  visibility: hidden;
-  opacity: 0;
 }
 
 .nav {
@@ -698,7 +689,8 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 60rem;
-  background-color: #f3f3f3;
+  overflow-x: hidden;
+  background-color: var(--warm-grey-050);
   padding: 5rem 6rem;
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
   z-index: 1000;
@@ -722,14 +714,32 @@ img {
 }
 .modal__form input {
   font-size: 1.7rem;
-  padding: 1rem 1.5rem;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
+  border: 1px solid var(--warm-grey-200);
+}
+.modal__form fieldset {
+  border: 1px solid var(--warm-grey-050);
 }
 .modal__form button {
   grid-column: 1/span 2;
   justify-self: center;
   margin-top: 1rem;
+}
+.modal__item {
+  transition: all 0.2s;
+}
+.modal__item--form.submitted {
+  transform: translateX(-60rem);
+}
+.modal__item--response {
+  height: 100%;
+  width: 100%;
+  background-color: aqua;
+  position: absolute;
+  top: 0;
+  left: 60rem;
+}
+.modal__item--response.active {
+  left: 0;
 }
 
 .overlay {

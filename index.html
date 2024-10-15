@@ -38,7 +38,7 @@
               </li>
               <li class="nav__item">
                 <a class="nav__link nav__link--btn btn--bank" href="bank.html">
-                  <span>My&nbsp;Bankist</span>
+                  <span class="btn--bank">My&nbsp;Bankist</span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-external-window">
                     <path class="primary"
                       d="M12 8a1 1 0 0 1-1 1H5v10h10v-6a1 1 0 0 1 2 0v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9c0-1.1.9-2 2-2h6a1 1 0 0 1 1 1z" />
@@ -343,22 +343,41 @@
     <!-- MODAL -->
     <div class="modal hidden">
       <button class="btn--close-modal">&times;</button>
-      <h2 class="modal__header">
-        Open your bank account <br />
-        in just <span class="highlight">5 minutes</span>
-      </h2>
-      <form class="modal__form">
-        <label>First Name</label>
-        <input type="text" />
-        <label>Last Name</label>
-        <input type="text" />
-        <label>Email Address</label>
-        <input type="email" />
-        <button class="btn">Next step &rarr;</button>
-      </form>
+      <div class="modal__item modal__item--form">
+        <h2 class="modal__header">
+          Open your bank account <br />
+          in just <span class="highlight">5 minutes</span>
+        </h2>
+        <form class="modal__form">
+          <label for="first">First Name</label>
+          <input type="text" id="first" name="first" required="required" />
+          <label for="last">Last Name</label>
+          <input type="text" id="last" name="last" required="required" />
+          <label for="deposit">Initial Deposit</label>
+          <input type="number" name="deposit" id="deposit" required="required" />
+          <label>Currency</label>
+          <fieldset>
+            <div>
+              <input type="radio" id="eur" name="currency" value="EUR" checked />
+              <label for="eur">Euro</label>
+            </div>
+            <div>
+              <input type="radio" id="usd" name="currency" value="USD" />
+              <label for="usd">US Dollar</label>
+            </div>
+            <div>
+              <input type="radio" id="gbp" name="currency" value="GBP" />
+              <label for="gbp">Pound Sterling</label>
+            </div>
+          </fieldset>
+          <button class="btn" type="submit">Create account</button>
+          </form>
+      </div>
+      <div class="modal__item modal__item--response"></div>
     </div>
     <div class="overlay hidden"></div>
     <script src="src/js/index.js"></script>
     <script src="src/js/slider.js"></script>
+    <script src="src/js/modal.js"></script>
   </body>
 </html>

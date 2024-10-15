@@ -5,7 +5,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 60rem;
-    background-color: #f3f3f3;
+    overflow-x: hidden;
+    background-color: var(--warm-grey-050);
     padding: 5rem 6rem;
     box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
     z-index: 1000;
@@ -32,9 +33,10 @@
 
     &__form input {
         font-size: 1.7rem;
-        padding: 1rem 1.5rem;
-        border: 1px solid #ddd;
-        border-radius: 0.5rem;
+        border: 1px solid var(--warm-grey-200);
+    }
+    &__form fieldset {
+        border: 1px solid var(--warm-grey-050);
     }
 
     &__form button {
@@ -42,6 +44,23 @@
         justify-self: center;
         margin-top: 1rem;
     }
+    &__item{
+        transition: all .2s;
+    }
+    &__item--form.submitted{
+        transform: translateX(-60rem);
+    }
+    &__item--response{
+        height: 100%;
+        width: 100%;
+        background-color: aqua;
+        position: absolute;
+        top: 0;
+        left: 60rem;
+        &.active{
+            left: 0;
+        }
+    }   
 }
 
 .overlay {

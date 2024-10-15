@@ -40,6 +40,7 @@ const navLink = document.querySelector(".nav__link");
 
 // Use bubbling event: Add event listener to commun parent.
 navLinks.addEventListener("click", function (e) {
+  console.log(e.target.classList);
   if (!e.target.classList.contains("btn--bank")) {
     e.preventDefault();
     if (e.target.tagName === "A") {
@@ -140,33 +141,6 @@ document
     );
     currentContent.classList.add("operations__content--active");
   });
-
-// MODAL WINDOW //
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-const btnCloseModal = document.querySelector(".btn--close-modal");
-const btnsOpenModal = document.querySelectorAll(".btn--show-modal");
-
-const openModal = function (e) {
-  e.preventDefault();
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-};
-
-const closeModal = function () {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
-};
-btnsOpenModal.forEach((button) => button.addEventListener("click", openModal));
-
-btnCloseModal.addEventListener("click", closeModal);
-overlay.addEventListener("click", closeModal);
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-    closeModal();
-  }
-});
 
 // LAZY IMAGE LOADING
 const lazyImgs = document.querySelectorAll("img[data-src]");

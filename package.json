@@ -4,7 +4,8 @@
   "description": "Refactoring the Jonas Schmedtmann app bankist",
   "main": "index.html",
   "scripts": {
-    "sass": "sass --watch ./src/sass/style.scss:./src/css/style.css"
+    "sass": "sass --watch ./src/sass/style.scss:./src/css/style.css",
+    "bank": "sass --watch ./src/sass/bank.scss:./src/css/bank.css"
   },
   "repository": {
     "type": "git",
