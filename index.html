@@ -14,17 +14,15 @@
   <body>
     <!-- HEADER -->
     <header class="header">
-  
       <nav class="nav sticky">
         <img src="./src/img/logo.png" alt="Bankist logo" class="nav__logo" id="logo" aria_label="logo"
           data-version-number="3.0" />
-          <div class="burger">
-            <input id="burger__input" class="burger__input" type="checkbox" />
-            <label class="burger__label" for="burger__input">
-              <div class="burger__line burger__line--top"></div>
-              <div class="burger__line burger__line--center"></div>
-              <div class="burger__line burger__line--bottom"></div>
-            </label>
+          <div class="nav__tiny-screen">
+            <a class="nav__link nav__link--btn btn--show-modal" href="#">Open account</a>
+            <a class="nav__link nav__link--btn btn--bank" href="bank.html">
+              My&nbsp;Bankist
+            </a>
+          </div>
             <ul class="nav__links">
               <li class="nav__item">
                 <a class="nav__link" href="section--1">Features</a>
@@ -50,13 +48,12 @@
                 </a>
               </li>
             </ul>
-          </div>
+          
       </nav>
       <div class="header__title container">
         <div class="header__title--text">
           <h1>
             When
-            <!-- Green highlight effect -->
             <span class="highlight highlight-primary">banking</span>
             meets<br />
             <span class="highlight highlight-secondary">minimalist</span>
@@ -64,7 +61,10 @@
           <h4>A simpler banking experience for a simpler life.</h4>
           <button class="btn--text btn--scroll-to">Learn more &DownArrow;</button>
         </div>
-        <figure class="header__img"><img src="./src/img/hero.png" alt="Minimalist bank items" /></figure>
+        <picture class="header__img">
+          <source media="(max-width: 1023px)" srcset="./src/img/hero-tiny.png" />
+          <img src="./src/img/hero.png" alt="Minimalist bank items" />
+        </picture>
       </div>
     </header>
     <!-- SECTION FEATURES -->
@@ -358,6 +358,7 @@
       </form>
     </div>
     <div class="overlay hidden"></div>
-    <script src="src/js/index.js" defer="defer"></script>
+    <script src="src/js/index.js"></script>
+    <script src="src/js/slider.js"></script>
   </body>
 </html>

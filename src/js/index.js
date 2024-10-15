@@ -28,10 +28,7 @@ document
 // BACK TO TOP.
 const backToTop = document.getElementById("back-to-top");
 const [body] = document.getElementsByTagName("BODY");
-console.log(body);
 backToTop.addEventListener("click", function (e) {
-  // Uncheck .nav__input.
-  burgerInput.checked = false;
   body.scrollIntoView({ behavior: "smooth" });
 });
 
@@ -40,15 +37,12 @@ backToTop.addEventListener("click", function (e) {
 const nav = document.querySelector(".nav");
 const navLinks = document.querySelector(".nav__links");
 const navLink = document.querySelector(".nav__link");
-// Uncheck .nav__input.
-const burgerInput = document.querySelector(".burger__input");
+
 // Use bubbling event: Add event listener to commun parent.
 navLinks.addEventListener("click", function (e) {
   if (!e.target.classList.contains("btn--bank")) {
     e.preventDefault();
     if (e.target.tagName === "A") {
-      // Uncheck .nav__input.
-      burgerInput.checked = false;
       const id = e.target.getAttribute("href");
       const target = document.getElementById(id);
       target.scrollIntoView({ behavior: "smooth" });
@@ -198,79 +192,3 @@ const observerLazyImg = new IntersectionObserver(loadLazyImg, {
 lazyImgs.forEach((img) => {
   observerLazyImg.observe(img);
 });
-
-// SLIDER
-const slider = function () {
-  // DOM
-  const slides = document.querySelectorAll(".slide");
-  const maxSlides = slides.length - 1;
-  // btn.
-  const btnRight = document.querySelector(".slider__btn--right");
-  const btnLeft = document.querySelector(".slider__btn--left");
-  // dots.
-  const dotContainer = document.querySelector(".dots");
-  // index;
-  let currSlide = 0;
-  // FUNCTIONS
-  const mvSlides = function (currSlide) {
-    slides.forEach((slide, index) => {
-      slide.style.transform = `translateX(${(index - currSlide) * 100}%)`;
-    });
-  };
-  const prevSlide = function () {
-    if (currSlide === 0) {
-      currSlide = maxSlides;
-    } else {
-      currSlide--;
-    }
-    mvSlides(currSlide);
-    activeDot(currSlide);
-  };
-  const nextSlide = function () {
-    if (currSlide === maxSlides) {
-      currSlide = 0;
-    } else {
-      currSlide++;
-    }
-    activeDot(currSlide);
-    mvSlides(currSlide);
-  };
-  const activeDot = function (index) {
-    dotContainer.querySelectorAll(".dots__dot").forEach((dot) => {
-      dot.classList.remove("dots__dot--active");
-      dot.dataset.slide == index && dot.classList.add("dots__dot--active");
-    });
-  };
-  const dots = function () {
-    slides.forEach(function (_, index) {
-      const st = `<button class="dots__dot" data-slide= "${index}"></button>`;
-      dotContainer.insertAdjacentHTML("beforeend", st);
-    });
-  };
-
-  // INIT
-  dots();
-  mvSlides(currSlide);
-  activeDot(currSlide);
-
-  // ADD EVENT LISTENER
-  btnRight.addEventListener("click", nextSlide);
-  btnLeft.addEventListener("click", prevSlide);
-
-  document.addEventListener("keydown", function (e) {
-    e.key === "ArrowLeft" && prevSlide();
-    e.key === "ArrowRight" && nextSlide();
-  });
-  dotContainer.addEventListener("click", function (e) {
-    if (!e.target.classList.contains("dots__dot")) {
-      return;
-    }
-    // Destructuring.
-    // === slide = e.target.dataset.slide
-    const { slide } = e.target.dataset;
-    console.log(`slide`, slide);
-    activeDot(slide);
-    mvSlides(slide);
-  });
-};
-slider();

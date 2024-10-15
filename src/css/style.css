@@ -106,6 +106,12 @@ h1 {
 h4 {
   font-size: 2.4rem;
   font-weight: 500;
+  max-width: 25ch;
+}
+@media screen and (min-width: 1024px) {
+  h4 {
+    max-width: none;
+  }
 }
 
 p {
@@ -114,7 +120,7 @@ p {
 
 /* GENERAL ELEMENTS */
 .container {
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
 }
 @media screen and (min-width: 768px) {
@@ -179,7 +185,8 @@ img {
 
 /* HEADER */
 .header {
-  padding: 0 3rem;
+  --nav-height: 9rem;
+  --tiny-nav:4rem;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -187,6 +194,9 @@ img {
 }
 .header__title {
   flex: 1;
+  padding-top: calc(var(--tiny-nav) * 2);
+  display: flex;
+  flex-direction: column-reverse;
 }
 @media screen and (min-width: 768px) {
   .header__title {
@@ -199,12 +209,19 @@ img {
     justify-items: start;
   }
 }
+@media screen and (min-width: 1024px) {
+  .header__title {
+    padding-top: 0;
+  }
+}
 .header__img {
-  display: none;
+  margin: 2rem 0;
+  max-height: calc(var(--tiny-nav) * 4);
 }
 @media screen and (min-width: 768px) {
   .header__img {
-    display: block;
+    margin: 0;
+    max-height: auto;
     grid-column: 2/3;
     grid-row: 1/span 4;
   }
@@ -213,6 +230,7 @@ img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: left top;
 }
 
 .highlight-primary {
@@ -264,13 +282,13 @@ img {
 }
 
 .nav {
-  --nav-height: 9rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: var(--nav-height);
   width: 100%;
-  padding: 0;
+  padding: 0 1rem;
+  position: relative;
   z-index: 100;
 }
 @media screen and (min-width: 1024px) {
@@ -287,27 +305,81 @@ img {
   position: fixed;
   background-color: rgba(255, 255, 255, 0.95);
 }
+.nav.sticky .nav__links {
+  background-color: rgba(255, 255, 255, 0.95);
+}
 .nav__logo {
   height: 4.5rem;
   transition: all 0.3s;
 }
-.nav__links {
+.nav__tiny-screen {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav__tiny-screen a.btn--show-modal {
   display: none;
+}
+@media screen and (min-width: 768px) {
+  .nav__tiny-screen a.btn--show-modal {
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .nav__tiny-screen {
+    display: none;
+  }
+}
+.nav__links {
   list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.5rem;
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: var(--tiny-nav);
+  background-color: var(--warm-grey-050);
+  border-width: 1px 0;
+  border-color: var(--warm-grey-500);
+  border-style: solid;
+}
+@media screen and (min-width: 425px) {
+  .nav__links {
+    column-gap: 1rem;
+  }
 }
 @media screen and (min-width: 1024px) {
   .nav__links {
-    display: flex;
-    align-items: center;
-    padding: 0 2rem;
+    height: var(--tiny-nav);
+    position: unset;
+    border: none;
+    justify-content: end;
   }
 }
 .nav__item {
-  margin-left: 3rem;
+  margin: 0;
+  display: inline-block;
+  text-align: center;
+}
+@media screen and (min-width: 1024px) {
+  .nav__item {
+    margin-left: 3rem;
+  }
 }
 @media screen and (min-width: 1280px) {
   .nav__item {
     margin-left: 4rem;
+  }
+}
+.nav__item:nth-child(n+4) {
+  display: none;
+}
+@media screen and (min-width: 1024px) {
+  .nav__item:nth-child(n+4) {
+    display: inline-block;
   }
 }
 .nav__link:link, .nav__link:visited {
@@ -364,101 +436,15 @@ img {
   }
 }
 .nav__link--btn.btn--bank svg {
-  width: 2ch;
-  height: 2ch;
-  transform: translateY(-2px);
   display: none;
 }
 @media screen and (min-width: 1280px) {
   .nav__link--btn.btn--bank svg {
     display: block;
+    width: 2ch;
+    height: 2ch;
+    transform: translateY(-2px);
   }
-}
-
-.burger {
-  --init: 5;
-  --lineh: calc(var(--init) * 1px);
-  --wh: calc(var(--init) * 5px);
-  --translateY: calc((var(--wh) / 2) - (var(--lineh) / 2));
-}
-.burger__input {
-  visibility: hidden;
-  position: absolute;
-}
-@media screen and (min-width: 1024px) {
-  .burger__input {
-    display: none;
-  }
-}
-.burger__label {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: calc(var(--wh) + 4px);
-  height: var(--wh);
-}
-@media screen and (min-width: 1024px) {
-  .burger__label {
-    display: none;
-  }
-}
-.burger__line {
-  width: 100%;
-  height: var(--lineh);
-  background-color: var(--warm-grey-800);
-  border-radius: 2px;
-  transition: all 0.2s;
-  transform-origin: center;
-}
-.burger__input:checked ~ .burger__label > div:nth-child(1) {
-  transform: translatey(var(--translateY)) rotate(-45deg);
-}
-.burger__input:checked ~ .burger__label > div:nth-child(2) {
-  opacity: 0;
-}
-.burger__input:checked ~ .burger__label > div:nth-child(3) {
-  transform: translatey(calc(-1 * var(--translateY))) rotate(45deg);
-}
-.burger__input:checked ~ .nav__links {
-  display: grid;
-  column-gap: 1rem;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  grid-template-rows: repeat(4, 1fr);
-  justify-content: center;
-  position: absolute;
-  top: var(--nav-height);
-  left: 0;
-  z-index: 1000;
-  width: 100vw;
-  text-align: center;
-  background-color: var(--warm-grey-050);
-  border-width: 1px 0;
-  border-color: var(--warm-grey-500);
-  border-style: solid;
-}
-.burger__input:checked ~ .nav__links .nav__item {
-  margin: 0;
-}
-.burger__input:checked ~ .nav__links .nav__item:nth-child(1) {
-  grid-column: 4/6;
-  grid-row: 2/-2;
-}
-.burger__input:checked ~ .nav__links .nav__item:nth-child(2) {
-  grid-column: 6/8;
-  grid-row: 2/-2;
-}
-.burger__input:checked ~ .nav__links .nav__item:nth-child(3) {
-  grid-column: 8/10;
-  grid-row: 2/-2;
-}
-.burger__input:checked ~ .nav__links .nav__item:nth-child(4) {
-  grid-row: 3/-3;
-  grid-column: 4/7;
-}
-.burger__input:checked ~ .nav__links .nav__item:nth-child(5) {
-  grid-row: 3/-3;
-  grid-column: 7/10;
 }
 
 .btn {
@@ -772,19 +758,26 @@ img {
 
 /* TESTIMONIALS */
 .testimonial {
-  width: 65%;
+  width: 100%;
   position: relative;
 }
-.testimonial::before {
-  content: "“";
-  position: absolute;
-  top: -5.7rem;
-  left: -6.8rem;
-  line-height: 1;
-  font-size: 20rem;
-  font-family: inherit;
-  color: var(--color-primary);
-  z-index: -1;
+@media screen and (min-width: 768px) {
+  .testimonial {
+    width: 65%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .testimonial::before {
+    content: "“";
+    position: absolute;
+    top: -5.7rem;
+    left: -6.8rem;
+    line-height: 1;
+    font-size: 20rem;
+    font-family: inherit;
+    color: var(--color-primary);
+    z-index: -1;
+  }
 }
 .testimonial__header {
   font-size: 2.25rem;
@@ -828,7 +821,6 @@ img {
   height: 50rem;
   margin: 0 auto;
   position: relative;
-  /* IN THE END */
   overflow: hidden;
 }
 
@@ -836,34 +828,37 @@ img {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 50rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* THIS creates the animation! */
   transition: transform 1s;
 }
 
 .slide > img {
-  /* Only for images that have different size than slide */
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 .slider__btn {
-  position: absolute;
-  top: 50%;
-  z-index: 10;
-  border: none;
-  background: rgba(255, 255, 255, 0.7);
-  font-family: inherit;
-  color: #333;
-  border-radius: 50%;
-  height: 5.5rem;
-  width: 5.5rem;
-  font-size: 3.25rem;
+  display: none;
   cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .slider__btn {
+    display: block;
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    border: none;
+    background: rgba(255, 255, 255, 0.7);
+    font-family: inherit;
+    color: #333;
+    border-radius: 50%;
+    height: 5.5rem;
+    width: 5.5rem;
+    font-size: 3.25rem;
+  }
 }
 
 .slider__btn--left {
@@ -878,7 +873,7 @@ img {
 
 .dots {
   position: absolute;
-  bottom: 5%;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -894,8 +889,6 @@ img {
   margin-right: 1.75rem;
   cursor: pointer;
   transition: all 0.5s;
-  /* Only necessary when overlying images */
-  /* box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.7); */
 }
 
 .dots__dot:last-child {
@@ -903,7 +896,6 @@ img {
 }
 
 .dots__dot--active {
-  /* background-color: #fff; */
   background-color: #888;
   opacity: 1;
 }

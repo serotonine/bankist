@@ -1,9 +1,15 @@
 /* TESTIMONIALS */
 .testimonial {
-    width: 65%;
+    width: 100%;
     position: relative;
+    @include media-min($_md){
+        width: 65%;
+    }
+    
 
     &::before {
+        
+        @include media-min($_md){
         content: "\201C";
         position: absolute;
         top: -5.7rem;
@@ -13,6 +19,7 @@
         font-family: inherit;
         color: var(--color-primary);
         z-index: -1;
+        }
     }
 
     &__header {
