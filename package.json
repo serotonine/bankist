@@ -1,0 +1,23 @@
+{
+  "name": "bankist",
+  "version": "1.0.0",
+  "description": "Refactoring the Jonas Schmedtmann app bankist",
+  "main": "index.html",
+  "scripts": {
+    "sass": "sass --watch ./src/sass/style.scss:./src/css/style.css",
+    "bank": "sass --watch ./src/sass/bank.scss:./src/css/bank.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/serotonine/bankist.git"
+  },
+  "keywords": [
+    "vanillaJS"
+  ],
+  "author": "Schmedtmann && Serotonine",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://serotonine.github.io/bankist/issues"
+  },
+  "homepage": "https://serotonine.github.io/bankist"
+}

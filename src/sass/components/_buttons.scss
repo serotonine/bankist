@@ -1,0 +1,118 @@
+button:focus {
+  outline: none;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  background-color: var(--cyan-200);
+  font-size: 1.6rem;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  @include media-min($_lg) {
+    border-radius: var(--border-radius-l);
+    padding: 1.25rem 4.5rem;
+  }
+
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: var(--color-body);
+  }
+
+  &:hover {
+    background-color: var(--cyan-300);
+  }
+
+  &--text {
+    display: inline-block;
+    background: none;
+    font-size: 1.7rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: var(--cyan-300);
+    border: none;
+    border-bottom: 1px solid currentColor;
+    padding-top: 6rem;
+    ;
+    padding-bottom: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+}
+
+#back-to-top {
+  padding: 1rem;
+  width: 15ch;
+  height: 15ch;
+  transform: scale(0.5);
+  display: none;
+  background-color: var(--yellow-400);
+  border-radius: 50%;
+  transition: all 0.2s;
+  cursor: pointer;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+
+  @include media-min($_md) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover {
+    transform: scale(0.8);
+  }
+
+  span:first-child {
+    font-size: 5rem;
+    line-height: 2ch;
+  }
+
+  span:last-child {
+    display: none;
+  }
+
+  @include media-min($_lg) {
+    span:first-child {
+      font-size: 2.5rem;
+      line-height: 2ch;
+    }
+
+    span:last-child {
+      display: inline-block;
+    }
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
+}
+.btn--show-modal{
+  background-color: var(--teal-200);
+  &:hover{background-color: var(--teal-300); }
+}
+.section--sign-up .btn--show-modal{
+  font-size:2rem;
+}
+
+
+.btn--bank{
+  &:link,
+  &:visited {
+    background-color: var(--yellow-300);
+  }
+
+  &:hover {
+    background-color: var(--yellow-400);
+  }
+}
