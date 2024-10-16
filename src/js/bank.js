@@ -48,6 +48,7 @@ const updateLocalStorage = function(){
 const displayDate = function (acc, d, hm = false) {
   const l = acc.locale;
   const options = {
+    weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
