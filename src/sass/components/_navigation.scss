@@ -102,7 +102,7 @@
     padding: 0.8rem 1.5rem;
     border-radius: 1rem;
     background-color: var(--color-primary);
-    color: #222;
+    color: var(--color-body);
     @include media-min($_lg) {
       border-radius: 3rem;
       padding: 0.8rem 2rem;
@@ -119,38 +119,4 @@
     background-color: var(--color-primary-darker);
     color: #333;
   }
-  &__link--btn.btn--bank {
-    background-color: var(--yellow-300);
-
-    @include media-min($_xl) {
-      display: inline-grid;
-      grid-template-columns: repeat(2, 1fr) auto;
-      column-gap: 0.5rem;
-      align-content: center;
-      align-items: center;
-    }
-  
-
-  &:hover {
-    background-color: var(--yellow-400);
-  }
-
-  span {
-    grid-column: 1 /-1;
-
-    @include media-min($_xl) {
-      grid-column: 1 / -2;
-    }
-  }
-
-  svg {
-    display: none;
-    @include media-min($_xl) {
-      display: block;
-      width: 2ch;
-      height: 2ch;
-      transform: translateY(-2px);
-    }
-  }
-}
 }

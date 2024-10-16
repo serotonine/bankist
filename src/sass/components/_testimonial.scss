@@ -1,68 +1,67 @@
 /* TESTIMONIALS */
 .testimonial {
-    width: 100%;
-    position: relative;
-    @include media-min($_md){
-        width: 65%;
-    }
-    
+  width: 100%;
+  position: relative;
 
-    &::before {
-        
-        @include media-min($_md){
-        content: "\201C";
-        position: absolute;
-        top: -5.7rem;
-        left: -6.8rem;
-        line-height: 1;
-        font-size: 20rem;
-        font-family: inherit;
-        color: var(--color-primary);
-        z-index: -1;
-        }
-    }
+  @include media-min($_md) {
+    width: 65%;
+  }
 
-    &__header {
-        font-size: 2.25rem;
-        font-weight: 500;
-        margin-bottom: 1.5rem;
-    }
 
-    &__text {
-        font-size: 1.7rem;
-        margin-bottom: 3.5rem;
-        color: #666;
-    }
+  &::before {
 
-    &__author {
-        margin-left: 3rem;
-        font-style: normal;
-
-        display: grid;
-        grid-template-columns: 6.5rem 1fr;
-        column-gap: 2rem;
+    @include media-min($_md) {
+      content: "\201C";
+      position: absolute;
+      top: -5.7rem;
+      left: -6.8rem;
+      line-height: 1;
+      font-size: 20rem;
+      font-family: inherit;
+      color: var(--color-primary);
+      z-index: -1;
     }
+  }
 
-    &__photo {
-        grid-row: 1 / span 2;
-        width: 6.5rem;
-        border-radius: 50%;
-    }
+  &__header {
+    margin-bottom: 1.5rem;
+  }
 
-    &__name {
-        font-size: 1.7rem;
-        font-weight: 500;
-        align-self: end;
-        margin: 0;
-    }
+  &__text {
+    font-size: 1.7rem;
+    margin-bottom: 3.5rem;
+    color: var(--color-body);
+  }
 
-    &__location {
-        font-size: 1.5rem;
-    }
+  &__author {
+    margin-left: 3rem;
+    font-style: normal;
+
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    column-gap: 2rem;
+  }
+
+  &__photo {
+    grid-row: 1 / span 2;
+    width: 6.5rem;
+    border-radius: 50%;
+  }
+
+  &__name {
+    font-size: 1.7rem;
+    font-weight: 500;
+    align-self: end;
+    margin: 0;
+  }
+
+  &__location {
+    font-size: 1.5rem;
+  }
 }
 
 
 
 .section__title--testimonials {
-    margin-bottom: 4rem;
+  margin-bottom: 4rem;
 }
